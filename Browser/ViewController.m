@@ -13,6 +13,8 @@
 @end
 
 @implementation ViewController
+@synthesize webView;
+@synthesize textField;
 
 - (void)viewDidLoad
 {
@@ -26,4 +28,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)textFieldDidEndEditing:(id)sender {
+    NSString *userString = self.textField.text;
+    [webView loadRequest:[NSURLRequest requestWithURL: [NSURL URLWithString:userString]]];
+}
 @end
