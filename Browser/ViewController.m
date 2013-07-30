@@ -32,4 +32,11 @@
     NSString *userString = self.textField.text;
     [webView loadRequest:[NSURLRequest requestWithURL: [NSURL URLWithString:userString]]];
 }
+- (void) webViewDidStartLoad:(UIWebView *)webView{
+    [self.activityIndicator startAnimating];
+}
+
+-(void) webViewDidFinishLoad:(UIWebView *)webView{
+    [self.activityIndicator stopAnimating];
+}
 @end
